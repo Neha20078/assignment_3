@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Implementation Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(248, 248, 248);
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid #333;
+            transition: background-color 0.3s;
+        }
+        .input-container {
+            display: flex;
+            gap: 10px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="greeting">Hello</h1>
+    </header>
+    <div class="container">
+        <div class="box" id="redBox" onclick="changeColor('redBox', 'red')">Red</div>
+        <div class="box" id="blueBox" onclick="changeColor('blueBox', 'blue')">Blue</div>
+        <div class="box" id="greenBox" onclick="changeColor('greenBox', 'green')">Green</div>
+        <div class="box" id="yellowBox" onclick="changeColor('yellowBox', 'yellow')">Yellow</div>
+    </div>
+    <div class="input-container">
+        <input type="text" id="userName" placeholder="Enter your name">
+        <button onclick="updateGreeting()">Greet</button>
+    </div>
+
+    <script>
+        function changeColor(boxId, color) {
+            document.getElementById(boxId).style.backgroundColor = color;
+        }
+
+        function updateGreeting() {
+            const nameInput = document.getElementById('userName').value;
+            const greeting = document.getElementById('greeting');
+            if (nameInput.trim() !== '') {
+                greeting.textContent = `Hello, ${nameInput}`;
+            } else {
+                greeting.textContent = 'Hello';
+            }
+        }
+    </script>
+</body>
+</html>
